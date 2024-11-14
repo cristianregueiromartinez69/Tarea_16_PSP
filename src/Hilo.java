@@ -1,13 +1,13 @@
-import java.util.Random;
-
 public class Hilo implements Runnable{
 
-    private int idPiso;
-    private Ascensor ascensor;
+    private final int idPiso;
+    private final Ascensor ascensor;
+    private final boolean parado;
 
-    public Hilo(int idPiso, Ascensor ascensor) {
+    public Hilo(int idPiso, Ascensor ascensor, boolean parado) {
         this.idPiso = idPiso;
         this.ascensor = ascensor;
+        this.parado = parado;
     }
 
 

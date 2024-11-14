@@ -12,7 +12,7 @@ public class Main {
 
 
         for(int i = 1; i < p.getNumPersonas(); i++){
-            new Thread(new Hilo(i, asc)).start();
+            new Thread(new Hilo(i, asc, parado)).start();
         }
 
 

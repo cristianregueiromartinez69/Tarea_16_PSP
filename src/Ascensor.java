@@ -1,7 +1,7 @@
 public class Ascensor {
 
     private boolean parado;
-    Piso pisoObject = new Piso();
+    Piso pisoObject;
 
     public Ascensor(boolean parado, Piso piso) {
         this.parado = parado;
@@ -15,15 +15,15 @@ public class Ascensor {
             wait();
         }
         else{
-            if(piso > pisoObject.getNumPiso() && parado){
+            if(piso > pisoObject.getNumPiso()){
                 parado = false;
                 pisoObject.addPiso(piso);
                 System.out.println("Persona numero " + idPersona + " ha pulsado el boton " + piso);
                 System.out.println("Subiendo...");
                 System.out.println("Piso: " + piso + "/20");
-                parado = true;
-                notifyAll();
             }
+            parado = true;
+            notifyAll();
         }
 
 
@@ -42,9 +42,9 @@ public class Ascensor {
                 System.out.println("Persona numero " + idPersona + " ha pulsado el boton " + piso);
                 System.out.println("bajando...");
                 System.out.println("Piso: " + piso + "/20");
-                parado = true;
-                notifyAll();
             }
+            parado = true;
+            notifyAll();
         }
 
 
