@@ -4,19 +4,29 @@ public class Hilo implements Runnable{
 
     private int idPiso;
     private Ascensor ascensor;
-    private Random rand;
 
-    public Hilo(int idPiso) {
+    public Hilo(int idPiso, Ascensor ascensor) {
         this.idPiso = idPiso;
+        this.ascensor = ascensor;
     }
 
 
     @Override
     public void run() {
         try{
-            ascensor.subir(rand.nextInt(1)+10, idPiso);
+            while(true){
+                ascensor.subir( getRandom(), idPiso);
+                Thread.sleep(2000);
+                ascensor.bajar(getRandom(), idPiso);
+                Thread.sleep(2000);
+            }
+
         } catch (InterruptedException e) {
             System.out.println("Ups, ha ocurrido un error en la ejecucion");
         }
+    }
+
+    private int getRandom(){
+       return (int) (Math.random() * 20) + 1;
     }
 }
